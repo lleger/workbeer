@@ -1,0 +1,80 @@
+$font-family-base: "ff-tisa-web-pro", serif;
+$headings-font-family: "lato", sans-serif;
+
+$futura-font-family: "futura-pt", sans-serif;
+
+$brand-primary: #67809F !default;
+
+$lightning-yellow: #F5AB35;
+$lynch-gray: #6C7A89;
+
+@import 'vendor/bootstrap';
+@import 'vendor/font-awesome';
+
+header {
+  padding: 75px 0;
+  margin-bottom: 25px;
+  background-color: $lynch-gray;
+  color: $lightning-yellow;
+
+  h1 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: $futura-font-family;
+    font-size: 56px;
+  }
+}
+
+#main {
+  hr {
+    margin: 75px 0;
+    border-top: 1px dashed $lynch-gray;
+  }
+
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  .lead {
+    font-family: $futura-font-family;
+    color: $lightning-yellow;
+  }
+
+  #dates {
+    text-align: center;
+    margin: 15px 0;
+    color: $lynch-gray;
+
+    .date {
+      font-family: $futura-font-family;
+      text-transform: uppercase;
+      font-weight: 700;
+      border-radius: 3px;
+      border: 2px solid $lightning-yellow;
+      padding: 5px 12px;
+      display: inline-table;
+
+      span {
+        display: block;
+        font-size: 24px;
+        font-weight: normal;
+      }
+    }
+  }
+
+  #hosts {
+    img {
+      margin-right: 15px;
+    }
+  }
+}
+
+footer {
+  margin-top: 50px;
+  padding-top: 25px;
+  padding-bottom: 50px;
+  font-family: $futura-font-family;
+  font-size: 16px;
+  background: $lightning-yellow;
+  color: $lynch-gray;
+}
