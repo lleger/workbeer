@@ -1,12 +1,4 @@
 $ ->
-  $('input#pay-4-other').on 'click', ->
-    $('#pay-4').prop('disabled', false)
-    $('#pay-4').focus()
-
-  $('#js-pay-form-group input[type="radio"]').on 'click', ->
-    if $(this).prop('id') != 'pay-4-other'
-      $('#pay-4').prop('disabled', true)
-
   $('input#favorite-beer-other').on 'click', ->
     otherText = $('#favorite-beer-other-text')
     $(otherText).prop('disabled', !$(otherText).prop('disabled'))
@@ -15,9 +7,12 @@ $ ->
   $('#reservation-modal').on 'shown.bs.modal', ->
     $('input#name').focus()
 
-  $('#js-reservation-form input').on 'keydown', (e) ->
+  $('#newsletter-modal').on 'shown.bs.modal', ->
+    $('input#newsletter-email').focus()
+
+  $('#js-reservation-form input, #js-newsletter-form input').on 'keydown', (e) ->
     if e.keyCode == 13
-      $('#js-reservation-form').submit()
+      $(this).submit()
 
   $('#js-reservation-submit').on 'click', (e) ->
     e.preventDefault()
@@ -26,11 +21,11 @@ $ ->
   $('#js-reservation-form').on 'submit', (e) ->
     e.preventDefault()
 
-    resetValidation()
+    resetValidation('#js-reservation-form')
     validateRequired('input')
     validateRequired('select', false)
     validateGroupRequired()
-    validateEmail()
+    validateEmail('#js-reservation-form input[data-validate-email]')
 
     if !$('#js-reservation-form .form-group').hasClass('has-error')
       $.ajax
@@ -43,8 +38,33 @@ $ ->
         $('#js-reservation-submit').addClass('hidden')
         $('#js-reservation-thanks').removeClass('hidden')
 
-  resetValidation = ->
-    container = $('#js-reservation-form .form-group')
+  $('#js-newsletter-submit').on 'click', (e) ->
+    e.preventDefault()
+    $('#js-newsletter-form').submit()
+
+  $('#js-newsletter-form').on 'submit', (e) ->
+    e.preventDefault()
+
+    $('#js-newsletter-error').addClass('hidden')
+    resetValidation('#js-newsletter-form')
+    validateEmail('#js-newsletter-form input[data-validate-email]')
+
+    if !$('#js-newsletter-form .form-group').hasClass('has-error')
+      $.ajax
+        url: $('#js-newsletter-form').prop('action')
+        data: $(this).serialize()
+        type: 'POST'
+        dataType: 'jsonp'
+      .done (data) ->
+        if data.result == 'error'
+          $('#js-newsletter-error').removeClass('hidden')
+        else
+          $('#js-newsletter-form').addClass('hidden')
+          $('#js-newsletter-submit').addClass('hidden')
+          $('#js-newsletter-thanks').removeClass('hidden')
+
+  resetValidation = (selector) ->
+    container = $("#{selector} .form-group")
     $(container).removeClass('has-error')
     $(container).removeClass('has-feedback')
     $(container).children('.form-control-feedback').remove()
@@ -68,8 +88,8 @@ $ ->
         $(this).parents('.form-group').addClass('has-error')
         $(this).parents('.form-group').addClass('has-feedback')
 
-  validateEmail = ->
-    $('#js-reservation-form input[data-validate-email]').map ->
+  validateEmail = (selector) ->
+    $(selector).map ->
       regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
       if !regex.test($(this).val())

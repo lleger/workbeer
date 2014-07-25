@@ -2,15 +2,6 @@
 (function() {
   $(function() {
     var resetValidation, validateEmail, validateGroupRequired, validateRequired;
-    $('input#pay-4-other').on('click', function() {
-      $('#pay-4').prop('disabled', false);
-      return $('#pay-4').focus();
-    });
-    $('#js-pay-form-group input[type="radio"]').on('click', function() {
-      if ($(this).prop('id') !== 'pay-4-other') {
-        return $('#pay-4').prop('disabled', true);
-      }
-    });
     $('input#favorite-beer-other').on('click', function() {
       var otherText;
       otherText = $('#favorite-beer-other-text');
@@ -20,9 +11,12 @@
     $('#reservation-modal').on('shown.bs.modal', function() {
       return $('input#name').focus();
     });
-    $('#js-reservation-form input').on('keydown', function(e) {
+    $('#newsletter-modal').on('shown.bs.modal', function() {
+      return $('input#newsletter-email').focus();
+    });
+    $('#js-reservation-form input, #js-newsletter-form input').on('keydown', function(e) {
       if (e.keyCode === 13) {
-        return $('#js-reservation-form').submit();
+        return $(this).submit();
       }
     });
     $('#js-reservation-submit').on('click', function(e) {
@@ -31,11 +25,11 @@
     });
     $('#js-reservation-form').on('submit', function(e) {
       e.preventDefault();
-      resetValidation();
+      resetValidation('#js-reservation-form');
       validateRequired('input');
       validateRequired('select', false);
       validateGroupRequired();
-      validateEmail();
+      validateEmail('#js-reservation-form input[data-validate-email]');
       if (!$('#js-reservation-form .form-group').hasClass('has-error')) {
         return $.ajax({
           url: $('#js-reservation-form').prop('action'),
@@ -49,9 +43,35 @@
         });
       }
     });
-    resetValidation = function() {
+    $('#js-newsletter-submit').on('click', function(e) {
+      e.preventDefault();
+      return $('#js-newsletter-form').submit();
+    });
+    $('#js-newsletter-form').on('submit', function(e) {
+      e.preventDefault();
+      $('#js-newsletter-error').addClass('hidden');
+      resetValidation('#js-newsletter-form');
+      validateEmail('#js-newsletter-form input[data-validate-email]');
+      if (!$('#js-newsletter-form .form-group').hasClass('has-error')) {
+        return $.ajax({
+          url: $('#js-newsletter-form').prop('action'),
+          data: $(this).serialize(),
+          type: 'POST',
+          dataType: 'jsonp'
+        }).done(function(data) {
+          if (data.result === 'error') {
+            return $('#js-newsletter-error').removeClass('hidden');
+          } else {
+            $('#js-newsletter-form').addClass('hidden');
+            $('#js-newsletter-submit').addClass('hidden');
+            return $('#js-newsletter-thanks').removeClass('hidden');
+          }
+        });
+      }
+    });
+    resetValidation = function(selector) {
       var container;
-      container = $('#js-reservation-form .form-group');
+      container = $("" + selector + " .form-group");
       $(container).removeClass('has-error');
       $(container).removeClass('has-feedback');
       $(container).children('.form-control-feedback').remove();
@@ -83,8 +103,8 @@
         }
       });
     };
-    return validateEmail = function() {
-      return $('#js-reservation-form input[data-validate-email]').map(function() {
+    return validateEmail = function(selector) {
+      return $(selector).map(function() {
         var regex;
         regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (!regex.test($(this).val())) {
