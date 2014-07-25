@@ -11,8 +11,8 @@ configure :development do
   activate :livereload, no_swf: true
 
   # Deploy to S3
-  activate :s3_sync do |s3_sync|
-    s3_sync.bucket = 'workbeer.co'
+  activate :s3_sync do |options|
+    options.bucket = 'workbeer.co'
   end
 end
 
@@ -31,5 +31,8 @@ configure :build do
   activate :gzip
 
   # Compress images
-  activate :imageoptim
+  activate :imageoptim do |options|
+    options.pngout_options = false
+    options.advpng_options = false
+  end
 end
