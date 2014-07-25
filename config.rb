@@ -4,6 +4,8 @@ set :js_dir,       'javascripts'
 set :images_dir,   'images'
 set :partials_dir, 'partials'
 
+set :debug_assets, true
+
 configure :development do
   # Reload the browser automatically whenever files change
   activate :livereload, no_swf: true
