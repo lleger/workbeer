@@ -1,23 +1,15 @@
 # Workbeer
 
+Workbeer is built with [Middleman](http://middlemanapp.com), a static site generator. The source is available in the `source/` directory. Middleman builds the site from the parsed ERb, CoffeeScript and SCSS into a `build/` folder. The production site on S3 mimics this folder.
+
 To run locally:
 
-    thin start
+    middleman server
 
-To compile SCSS:
+To build:
 
-    sass --watch source/stylesheets/workbeer.scss:site/stylesheets/workbeer.css
-
-To compile CoffeeScript:
-
-    coffee --compile --output site/javascripts --watch source/javascripts/workbeer.coffee
+    middleman build
 
 To deploy to S3:
 
-    s3cmd sync ./site/ s3://workbeer.co/ --config ./.s3cfg --delete-removed --acl-public
-
-## Structure
-
-The `site/` folder contains the compiled site. Locally, `thin` is configured to serve from this folder. In production, the contents of S3 mirror this folder.
-
-The `source/` folder contains the uncompiled SCSS and CoffeeScript files, including any vendor files.
+    middleman s3_sync

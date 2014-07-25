@@ -1,3 +1,6 @@
+#= require bootstrap/modal
+#= require bootstrap/transition
+
 $ ->
   $('input#favorite-beer-other').on 'click', ->
     otherText = $('#favorite-beer-other-text')

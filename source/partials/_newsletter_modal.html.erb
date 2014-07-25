@@ -1,0 +1,35 @@
+<!-- Newsletter modal -->
+<div class="modal fade" id="newsletter-modal" tabindex="-1" role="dialog" aria-labelledby="newsletter-modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Workbeer Newsletter Signup</h4>
+      </div>
+      <div class="modal-body">
+        <p>Fill out the form below to subscribe to our newsletter. We&rsquo;ll only use this to email you with Workbeer updates and will never sell or let anyone else use your email &mdash; we hate spam too!</p>
+        <div id="js-newsletter-error" class="hidden">
+          <div class="alert alert-danger" role="alert">
+            <strong>Error!</strong> There was a problem subscribing you. Probably our fault. Can you try again?
+          </div>
+        </div>
+        <form role="form" id="js-newsletter-form" action="https://workbeer.us2.list-manage.com/subscribe/post-json?u=bb9323ac5d2d27304cdaf9d39&id=a84d57a974&c=?">
+          <div class="form-group">
+            <label for="newsletter-email">Email</label>
+            <input type="text" name="EMAIL" value="" class="form-control" id="newsletter-email" data-validate-email>
+            <span class="help-block">This field is required.</span>
+          </div>
+        </form>
+        <div id="js-newsletter-thanks" class="hidden">
+          <div class="alert alert-success" role="alert">
+            <strong>Success!</strong> You have been subscribed to our newsletter. Check your inbox for confirmation.
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="js-newsletter-submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

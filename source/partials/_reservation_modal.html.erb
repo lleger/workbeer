@@ -1,0 +1,145 @@
+<!-- Reservation Modal -->
+<div class="modal fade" id="reservation-modal" tabindex="-1" role="dialog" aria-labelledby="reservation-modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Workbeer Reservation Request</h4>
+      </div>
+      <div class="modal-body">
+        <p>Fill out the form below to make a reservation request.</p>
+        <form role="form" id="js-reservation-form" action="https://docs.google.com/forms/d/1CVpMGZiXQhXKjO0Op72XpG43i9-f2INa5M4zxqpRxVE/formResponse">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="entry.1417483933">Name</label>
+                <input type="text" name="entry.1417483933" value="" class="form-control" id="name" data-required>
+                <span class="help-block">This field is required.</span>
+              </div>
+              <div class="form-group">
+                <label for="entry.879245907">Email</label>
+                <input type="email" name="entry.879245907" value="" class="form-control" id="email" data-required data-validate-email>
+                <span class="help-block">This field is required.</span>
+              </div>
+              <div class="form-group">
+                <label for="entry.437091768">Workplace</label>
+                <input type="text" name="entry.437091768" value="" class="form-control" id="workplace" data-required>
+                <span class="help-block">This field is required. If your company has multiple locations, please include specifics.</span>
+              </div>
+              <div class="form-group">
+                <label for="entry.603918196">What date are you requesting?</label>
+                <select class="form-control" name="entry.603918196" id="attendance" data-required>
+                  <option value="">---</option>
+                  <% data.dates.each do |date| %>
+                  <option value="<%= date %>"><%= date %></option>
+                  <% end %>
+                </select>
+                <span class="help-block">This field is required.</span>
+              </div>
+              <div class="form-group">
+                <label for="entry.877754164">How many people would attend?</label>
+                <select class="form-control" name="entry.877754164" id="attendance" data-required>
+                  <option value="">---</option>
+                  <option value="4-8">4&ndash;8</option>
+                  <option value="9-12">9&ndash;12</option>
+                  <option value="13-20">13&ndash;20</option>
+                  <option value="20+">20+</option>
+                  <option value="Not sure">Not sure</option>
+                </select>
+                <span class="help-block">This field is required. Please be as accurate as possible.</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="entry.1954042346">What time would be ideal for your workplace?</label>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="entry.1954042346" id="time-1" value="3:00-4:00 PM" data-required-group="entry.1954042346">
+                    3:00&ndash;4:00 PM
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="entry.1954042346" id="time-2" value="4:30-5:30 PM">
+                    4:30&ndash;5:30 PM
+                  </label>
+                </div>
+                <span class="help-block">This field is required.</span>
+              </div>
+              <div class="form-group">
+                <label for="entry.1972085917">What some of your favorite local craft beers?</label>
+                <span class="help-block">Please check all that apply. We&rsquo;ll do our best to accomdate preferences.</span>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-tin-roof" value="Tin Roof">
+                    Tin Roof
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-parish" value="Parish">
+                    Parish
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-nola" value="NOLA">
+                    NOLA
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-bayou-teche" value="Bayou Teche">
+                    Bayou Teche
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-chafunkta" value="Chafunkta">
+                    Chafunkta
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-abita" value="Abita">
+                    Abita
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-abita" value="Abita">
+                    Great Raft
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-abita" value="Abita">
+                    Covington
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <div class="form-group">
+                    <label>
+                      <input type="checkbox" name="entry.1972085917" id="favorite-beer-other" value="__other_option__">
+                      Other
+                    </label>
+                    <input type="text" name="entry.1972085917.other_option_response" value="" class="form-control" id="favorite-beer-other-text" disabled>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div id="js-reservation-thanks" class="hidden">
+          <div class="alert alert-success" role="alert">
+            <strong>Success!</strong> Your reservation request has been submitted. We will be in contact with more details if we can confirm your reservation. Thanks!
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="js-reservation-submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

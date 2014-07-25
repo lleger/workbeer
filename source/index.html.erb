@@ -1,0 +1,84 @@
+---
+title: Workbeer &middot; A craft beer workplace experience.
+---
+
+<section id="main">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>How it Works</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <p>Does your team have a bad case of the Monday&rsquo;s&hellip;but like, everyday? Workbeer was created to bring happy hour to you. Skip the awkward &ldquo;let&rsquo;s all grab a beer after work&rdquo; scene where Janet in accounting decides to drink through her issues and Chris from HR is working through a rough patch and say yes to having a couple of beers in a controlled, fun, and epicurean environment.</p>
+        </div>
+        <div class="col-md-6">
+          <p>Workbeer brings a couple of craft beer drinking pros to you, brews in hand. We&rsquo;ll let you try some great local beers you can find on tap around town, and some you can only find in certain areas of the state. Looking at all of the taps in a bar can be overwhelming at times, but Workbeer offers a friendly approach to the craft beer scene so you can say, &ldquo;Move over Mr. Hipster, craft beer is anyone&rsquo;s game!&rdquo; The best part about craft beer drinkers is their promiscuity; that&rsquo;s why we offer beers from almost every brewery in the state!</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <br /><br />
+          <p class="lead text-center">Say yes to team building, say yes to local, but most importantly&hellip;say yes to craft beer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Available Dates</h2>
+      <p>We are currently booking for <em>one date</em> in August.</p>
+
+        <% data.dates.each_slice(5) do |group| %>
+          <div id="dates">
+          <% group.each do |date| %>
+          <% content_tag :p, class: 'date' do %>
+            <%= Date.strptime(date, "%m-%d-%y").strftime('%b') %> <%= content_tag :span, Date.strptime(date, "%m-%d-%y").strftime('%d') %>
+          <% end %>
+          <% end %>
+          </div>
+        <% end %>
+
+      <p>More dates will be available soon. <a href="#" data-toggle="modal" data-target="#newsletter-modal">Subscribe to our newsletter</a> to stay notified of dates as soon as they&rsquo;re posted.</p>
+    </div>
+
+    <div class="col-md-6">
+      <h2>Booking a Reservation</h2>
+      <p>To request a reservation, click the button below to fill out the request form. Please be as accurate as possible when selecting your party size &mdash; we have to be sure we bring enough beer! Reservations are limited, so we&rsquo;ll be fulfilling requests on a first-come, first-serve basis.</p>
+
+      <p>If we can fulfill your reservation, we&rsquo;ll be in touch by email to work out the details.</p>
+
+      <p>Workbeer is a flat-rate $250 for a one-hour reservation for a party up to 20 people. Larger parties can be accommodated for a separate fee.</p>
+
+      <button class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#reservation-modal">
+        Book Workbeer Now
+      </button>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-md-12" id="hosts">
+      <h2>The Hosts</h2>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Jay Ducote <a href="http://twitter.com/biteandbooze" alt="@biteandbooze"><i class="fa fa-twitter"></i></a></h3>
+          <%= image_tag 'jay.jpg', width: 150, height: 250, alt: 'Jay Ducote', class: 'pull-left img-rounded img-thumbnail img-responsive' %>
+          <p>Jay spends most of his time as a food and beverage writer, blogger, radio host, speaker, video producer, culinary personality, chef, and hugger. You can find him online at <a href="http://biteandbooze.com" alt="Bite and Booze">Bite and Booze</a>.</p>
+        </div>
+
+        <div class="col-md-6">
+          <h3>Logan Leger <a href="http://twitter.com/lleger" alt="@lleger"><i class="fa fa-twitter"></i></a></h3>
+          <%= image_tag 'logan.jpg', width: 250, height: 150, alt: 'Logan Leger', class: 'pull-left img-rounded img-thumbnail img-responsive' %>
+          <p>Logan is a tech entrepreneur and software engineer. He&rsquo;s started many tech companies, including <a href="http://newaperio.com" alt="NewAperio - Baton Rouge mobile development">NewAperio</a>, a local web and mobile development studio. In his spare time, he tweets a lot, grows a rad beard and drinks craft beer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= partial 'reservation_modal' %>
+<%= partial 'newsletter_modal' %>

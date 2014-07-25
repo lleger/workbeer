@@ -8,8 +8,9 @@ $brand-primary: #67809F !default;
 $lightning-yellow: #F5AB35;
 $lynch-gray: #6C7A89;
 
-@import 'vendor/bootstrap';
-@import 'vendor/font-awesome';
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome';
 
 header {
   padding: 75px 0;
@@ -53,6 +54,8 @@ header {
       border: 2px solid $lightning-yellow;
       padding: 5px 12px;
       display: inline-table;
+      margin: 0 5px;
+      min-width: 60px;
 
       span {
         display: block;
