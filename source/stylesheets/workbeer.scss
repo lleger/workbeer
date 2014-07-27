@@ -8,6 +8,8 @@ $brand-primary: #67809F !default;
 $lightning-yellow: #F5AB35;
 $lynch-gray: #6C7A89;
 
+$input-border-focus: $brand-primary;
+
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'font-awesome';
