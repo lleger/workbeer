@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'middleman', '~> 3.3.3'
+gem 'middleman', '~> 3.3.6'
 
 gem 'middleman-livereload', '~> 3.3'
 gem 'middleman-imageoptim', '~> 0.1.4'
