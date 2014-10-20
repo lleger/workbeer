@@ -18,6 +18,7 @@ header {
   padding: 75px 0;
   margin-bottom: 25px;
   background-color: $lynch-gray;
+  @include img-retina('/images/header.png', '/images/header@2x.png', 1500px, 300px);
   color: $lightning-yellow;
 
   h1 {
@@ -41,6 +42,15 @@ header {
   .lead {
     font-family: $futura-font-family;
     color: $lightning-yellow;
+  }
+
+  #gallery {
+    margin-top: 25px;
+
+    .caption {
+      color: $text-muted;
+      font-style: italic;
+    }
   }
 
   #dates {
@@ -77,7 +87,7 @@ header {
 footer {
   margin-top: 50px;
   padding-top: 25px;
-  padding-bottom: 50px;
+  padding-bottom: 35px;
   font-family: $futura-font-family;
   font-size: 16px;
   background: $lightning-yellow;

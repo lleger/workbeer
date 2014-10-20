@@ -25,8 +25,7 @@ $ ->
         url: $(this).prop('action')
         data: $(this).serialize()
         type: 'POST'
-        dataType: 'jsonp'
-      .always =>
+      .done =>
         $(this).addClass('hidden')
         $('#js-reservation-submit').addClass('hidden')
         $('#js-reservation-thanks').removeClass('hidden')

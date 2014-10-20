@@ -8,27 +8,27 @@
       </div>
       <div class="modal-body">
         <p>Fill out the form below to make a reservation request.</p>
-        <form role="form" id="js-reservation-form" action="https://docs.google.com/forms/d/1CVpMGZiXQhXKjO0Op72XpG43i9-f2INa5M4zxqpRxVE/formResponse">
+        <form role="form" id="js-reservation-form" action="https://formkeep.com/f/4cef5263f264" method="POST">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="entry.1417483933">Name</label>
-                <input type="text" name="entry.1417483933" value="" class="form-control" id="name" data-required>
+                <label for="name">Name</label>
+                <input type="text" name="name" value="" class="form-control" id="name" data-required>
                 <span class="help-block">This field is required.</span>
               </div>
               <div class="form-group">
-                <label for="entry.879245907">Email</label>
-                <input type="email" name="entry.879245907" value="" class="form-control" id="email" data-required data-validate-email>
+                <label for="email">Email</label>
+                <input type="email" name="email" value="" class="form-control" id="email" data-required data-validate-email>
                 <span class="help-block">This field is required.</span>
               </div>
               <div class="form-group">
-                <label for="entry.437091768">Workplace</label>
-                <input type="text" name="entry.437091768" value="" class="form-control" id="workplace" data-required>
+                <label for="workplace">Workplace</label>
+                <input type="text" name="workplace" value="" class="form-control" id="workplace" data-required>
                 <span class="help-block">This field is required. If your company has multiple locations, please include specifics.</span>
               </div>
               <div class="form-group">
-                <label for="entry.603918196">Which date are you requesting?</label>
-                <select class="form-control" name="entry.603918196" id="attendance" data-required>
+                <label for="date">Which date are you requesting?</label>
+                <select class="form-control" name="date" id="attendance" data-required>
                   <option value="">---</option>
                   <% data.dates.each do |date| %>
                   <option value="<%= date %>"><%= date %></option>
@@ -37,8 +37,8 @@
                 <span class="help-block">This field is required.</span>
               </div>
               <div class="form-group">
-                <label for="entry.877754164">How many people would attend?</label>
-                <select class="form-control" name="entry.877754164" id="attendance" data-required>
+                <label for="attendance">How many people would attend?</label>
+                <select class="form-control" name="attendance" id="attendance" data-required>
                   <option value="">---</option>
                   <option value="4-8">4&ndash;8</option>
                   <option value="9-12">9&ndash;12</option>
@@ -51,79 +51,79 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="entry.1954042346">What time would be ideal for your workplace?</label>
+                <label for="time">What time would be ideal for your workplace?</label>
                 <div class="radio">
                   <label>
-                    <input type="radio" name="entry.1954042346" id="time-1" value="3:00-4:00 PM" data-required-group="entry.1954042346">
+                    <input type="radio" name="time" id="time-1" value="3:00-4:00 PM" data-required-group="time">
                     3:00&ndash;4:00 PM
                   </label>
                 </div>
                 <div class="radio">
                   <label>
-                    <input type="radio" name="entry.1954042346" id="time-2" value="4:30-5:30 PM">
+                    <input type="radio" name="time" id="time-2" value="4:30-5:30 PM">
                     4:30&ndash;5:30 PM
                   </label>
                 </div>
                 <span class="help-block">This field is required.</span>
               </div>
               <div class="form-group">
-                <label for="entry.1972085917">What some of your favorite local craft beers?</label>
+                <label for="favorite-beer">What some of your favorite local craft beers?</label>
                 <span class="help-block">Please check all that apply. We&rsquo;ll do our best to accomdate preferences.</span>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-tin-roof" value="Tin Roof">
+                    <input type="checkbox" name="favorite-beer[]" id="favorite-beer-tin-roof" value="Tin Roof">
                     Tin Roof
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-parish" value="Parish">
+                    <input type="checkbox" name="favorite-beer[]" id="favorite-beer-parish" value="Parish">
                     Parish
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-nola" value="NOLA">
+                    <input type="checkbox" name="favorite-beer[]" id="favorite-beer-nola" value="NOLA">
                     NOLA
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-bayou-teche" value="Bayou Teche">
+                    <input type="checkbox" name="favorite-beer[]" id="favorite-beer-bayou-teche" value="Bayou Teche">
                     Bayou Teche
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-chafunkta" value="Chafunkta">
+                    <input type="checkbox" name="favorite-beer[]" id="favorite-beer-chafunkta" value="Chafunkta">
                     Chafunkta
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-abita" value="Abita">
+                    <input type="checkbox" name="favorite-beer[]" id="favorite-beer-abita" value="Abita">
                     Abita
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-abita" value="Abita">
+                    <input type="checkbox" name="favorite-beer[]" id="favorite-beer-abita" value="Great Raft">
                     Great Raft
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="entry.1972085917" id="favorite-beer-abita" value="Abita">
+                    <input type="checkbox" name="favorite-beer[]" id="favorite-beer-abita" value="Covington">
                     Covington
                   </label>
                 </div>
                 <div class="checkbox">
                   <div class="form-group">
                     <label>
-                      <input type="checkbox" name="entry.1972085917" id="favorite-beer-other" value="__other_option__">
+                      <input type="checkbox" name="" id="favorite-beer-other" value="">
                       Other
                     </label>
-                    <input type="text" name="entry.1972085917.other_option_response" value="" class="form-control" id="favorite-beer-other-text" disabled>
+                    <input type="text" name="favorite-beer[]" value="" class="form-control" id="favorite-beer-other-text" disabled>
                   </div>
                 </div>
               </div>
