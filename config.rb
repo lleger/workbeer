@@ -14,6 +14,12 @@ configure :development do
   activate :s3_sync do |options|
     options.bucket = 'workbeer.co'
   end
+
+  caching_policy 'image/x-icon',           expires: one_year_from_now
+  caching_policy 'image/jpeg',             expires: one_year_from_now
+  caching_policy 'image/png',              expires: one_year_from_now
+  caching_policy 'text/css',               expires: one_year_from_now
+  caching_policy 'application/javascript', expires: one_year_from_now
 end
 
 # Build-specific configuration
@@ -35,4 +41,8 @@ configure :build do
     options.pngout_options = false
     options.advpng_options = false
   end
+end
+
+def one_year_from_now
+  Time.now + (365.25 * 24 * 3600)
 end
