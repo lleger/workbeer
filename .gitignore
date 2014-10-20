@@ -3,4 +3,4 @@
 /.sass-cache
 /.cache
 .DS_Store
-.s3cfg
+.s3_sync
