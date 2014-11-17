@@ -6,6 +6,8 @@ set :partials_dir, 'partials'
 
 set :debug_assets, true
 
+page '/404.html', layout: false
+
 configure :development do
   # Reload the browser automatically whenever files change
   activate :livereload, no_swf: true
