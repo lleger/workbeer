@@ -28,7 +28,7 @@
               </div>
               <div class="form-group">
                 <label for="date">Which date are you requesting?</label>
-                <select class="form-control" name="date" id="attendance" data-required>
+                <select class="form-control" name="date" id="date" data-required>
                   <option value="">---</option>
                   <% data.dates.each do |date| %>
                   <option value="<%= date %>"><%= date %></option>
@@ -51,7 +51,7 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="time">What time would be ideal for your workplace?</label>
+                <label>What time would be ideal for your workplace?</label>
                 <div class="radio">
                   <label>
                     <input type="radio" name="time" id="time-1" value="3:00-4:00 PM" data-required-group="time">
@@ -67,7 +67,7 @@
                 <span class="help-block">This field is required.</span>
               </div>
               <div class="form-group">
-                <label for="favorite-beer">What some of your favorite local craft beers?</label>
+                <label>What some of your favorite local craft beers?</label>
                 <span class="help-block">Please check all that apply. We&rsquo;ll do our best to accomdate preferences.</span>
                 <div class="checkbox">
                   <label>
@@ -107,13 +107,13 @@
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="favorite-beer[]" id="favorite-beer-abita" value="Great Raft">
+                    <input type="checkbox" name="favorite-beer[]" id="favorite-beer-great-raft" value="Great Raft">
                     Great Raft
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="favorite-beer[]" id="favorite-beer-abita" value="Covington">
+                    <input type="checkbox" name="favorite-beer[]" id="favorite-beer-covington" value="Covington">
                     Covington
                   </label>
                 </div>
